@@ -120,6 +120,10 @@ module ActionController # :nodoc:
   #
   # Using <code>respond_with</code> with a block follows the same syntax as <code>respond_to</code>.
   class Responder
+    class << self
+      attr_accessor :error_status
+    end
+
     class_attribute :error_status, default: :ok, instance_writer: false, instance_predicate: false
     class_attribute :redirect_status, default: :found, instance_writer: false, instance_predicate: false
 
